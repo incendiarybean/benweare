@@ -13,7 +13,7 @@ const serverhttp = require('http')
 .createServer(app)
 .listen(process.env.PORT || process.env.HTTPS || 8080, (err) => {
 	if (err) throw err;
-	console.log(`[${time}] Server is active on port: ${p}`);
+	console.log(`[${time}] Server is active on port: ${process.env.PORT || process.env.HTTPS || 8080}`);
 });
 
 // INITIATE ROUTES
