@@ -11,7 +11,7 @@ console.log(`[${time}] ENV: ${process.env.NODE_ENV}`);
 
 const serverhttp = require('http')
 .createServer(app)
-.listen(process.env.PORT || 8000, (err) => {
+.listen(process.env.PORT || process.env.HTTPS || 8080, (err) => {
 	if (err) throw err;
 	console.log(`[${time}] Server is active on port: ${p}`);
 });
