@@ -1,10 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const ObjectId = require('mongodb').ObjectID;
-
-const db_module = require('../modules/db-module');
-const ext_functions = require('../modules/ext-functions');
 
 const bodyParser = require('body-parser');
 
