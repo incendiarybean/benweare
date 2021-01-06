@@ -21,7 +21,8 @@ module.exports = {
         extend: {
             screens: {
                 light: { raw: "(prefers-color-scheme: light)" },
-                dark: { raw: "(prefers-color-scheme: dark)" }
+                dark: { raw: "(prefers-color-scheme: dark)" },
+                'xs': {'min': '200xp', 'max': '400px'},
             },
             transitionProperty: {
                 'width': 'width'
@@ -64,6 +65,9 @@ module.exports = {
             '2/5': '40%',
             '1/2': '50%',
             '3/4': '75%',
+            '4/5': '80%',
+            '85': '85%',
+            '90': '90%',
             'full': '100%',
         },
         maxWidth: {

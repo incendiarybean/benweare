@@ -21,5 +21,3 @@ const serverhttp = require('http')
 // INITIATE ROUTES
 
 routes(app);
-
-

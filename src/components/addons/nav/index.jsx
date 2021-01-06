@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 function Component(){
 
@@ -66,21 +65,6 @@ function Component(){
                 window.localStorage.setItem('theme', 'light');
                 document.getElementById('root').classList.remove(`theme-dark`, `theme-light`);
                 return document.getElementById('root').classList.add(`theme-light`);
-        }
-    }
-
-    const menu = () => {
-        let links = document.querySelectorAll('.linklist');
-        for(let link in links) {
-            let item = links[link];
-            if(typeof(item) === 'object'){
-                item.classList.remove('animate__fadeIn', 'animate__fadeOut');
-                if(item.classList.contains('hidden')){
-                    return item.classList.toggle('hidden', false);
-                } else {
-                    return item.classList.toggle('hidden', true);
-                }
-            }
         }
     }
 
