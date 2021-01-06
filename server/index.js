@@ -10,7 +10,7 @@ const p = 8080;
 process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV:'development';
 console.log(`[${time}] ENV: ${process.env.NODE_ENV}`);
 
-app.use(enforce.HTTPS());
+if(process.env.NODE_ENV !== "development") app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 const serverhttp = require('http')
 .createServer(app)
