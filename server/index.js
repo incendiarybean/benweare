@@ -1,4 +1,5 @@
 const express = require('express');
+var enforce = require('express-sslify');
 const app = express();
 let time = new Date();
 
@@ -8,6 +9,8 @@ const p = 8080;
 
 process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV:'development';
 console.log(`[${time}] ENV: ${process.env.NODE_ENV}`);
+
+app.use(enforce.HTTPS());
 
 const serverhttp = require('http')
 .createServer(app)

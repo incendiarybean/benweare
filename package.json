@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.6.0",
     "autoprefixer": "^10.1.0",
     "cors": "^2.8.5",
+    "express-sslify": "^1.2.0",
     "nodemon": "^2.0.6",
     "postcss": "^8.2.2",
     "postcss-cli": "^8.3.1",
