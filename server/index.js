@@ -1,5 +1,5 @@
 const express = require('express');
-const force = require('./imports/headers.js');
+const headers = require('./imports/headers.js');
 const app = express();
 let time = new Date();
 
@@ -9,10 +9,7 @@ const p = 8080;
 
 process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV:'development';
 console.log(`[${time}] ENV: ${process.env.NODE_ENV}`);
-
-if(process.env.NODE_ENV !== "development") app.use(enforce.HTTPS({ trustProtoHeader: true }));
-
-app.use(force);
+if(process.env.NODE_ENV !== "development") app.use(headers);
 
 const serverhttp = require('http')
 .createServer(app)
