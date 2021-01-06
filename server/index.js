@@ -1,5 +1,5 @@
 const express = require('express');
-var enforce = require('express-sslify');
+const force = require('./imports/headers.js');
 const app = express();
 let time = new Date();
 
@@ -11,6 +11,8 @@ process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV:'development'
 console.log(`[${time}] ENV: ${process.env.NODE_ENV}`);
 
 if(process.env.NODE_ENV !== "development") app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
+app.use(force);
 
 const serverhttp = require('http')
 .createServer(app)
