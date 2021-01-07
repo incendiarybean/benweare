@@ -161,10 +161,9 @@ function Components(props){
                         <p className="text-xl text-title font-bold">What can I find here?</p>
                         <hr className="my-1"/>
                         <div className="text-paragraph">
-                            <p className="py-1">MicroK8s, according to the home page found <a className="text-blue-400 hover:text-blue-600" href="https://microk8s.io/docs">here</a>, is the lightest and most effective Kubernetes installation.</p>
-                            <p className="py-1">The size alone makes it perfect for installing on smaller, cheaper systems - further making a Raspberry Pi a viable subject for developement.</p>
-                            <p className="py-1">MicroK8s can be clustered using multiple Raspberry Pis (called a bramble) and enabling HA (high availabilty).</p>
-                            <p className="py-1">This guide will walk you through making it work.</p>
+                            <p className="py-1">While I was completing all of the work for these guides, I realised a lot of it wasn't very well documented for people with less experience.</p>
+                            <p className="py-1">I kept at it until I knew it was done and now I'm sharing this information so either me, or anyone in the same situation can use it for the same thing.</p>
+                            <p className="py-1">Hope this helps as much as it helped me.</p>
                         </div>
                         <p className="mt-2 text-xl text-title font-bold">Where to Start?</p>
                         <hr className="my-1"/>
