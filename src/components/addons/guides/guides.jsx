@@ -149,7 +149,7 @@ function Components(props){
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-center w-full py-4 sm:py-2 border-b">
+                        <div className="flex justify-center w-full py-4 sm:py-2">
                         </div>
                     </div>
                 );
