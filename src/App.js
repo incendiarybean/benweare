@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { Home, Guides, Nav, Footer } from './components';
 import Functions from './JS';
 
@@ -12,8 +11,7 @@ function App() {
 
     useEffect(() => {
         props.custom("💠 Welcome!", "bottom-left")
-        // props.success(CustomToastWithLink, "bottom-left");
-    }, [props]);
+    }, []);
 
     return (
         <Router>

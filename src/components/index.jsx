@@ -25,9 +25,9 @@ function Component(props){
                         <li><a href="https://www.npmjs.com/package/mongodb" className="text-paragraph hover:text-blue-400 underline p-2">MongoDB</a></li>
                         <li><a href="https://www.npmjs.com/package/tailwindcss" className="text-paragraph hover:text-blue-400 underline p-2">TailwindCSS</a></li>
                     </div>
-                    {/* <div className="flex justify-center w-full py-4 sm:py-2 border-b">
+                    <div className="flex justify-center w-full py-4 sm:py-2 border-b">
                         <Link className="text-center w-full text-sm sm:text-base p-1 px-2 font-semi-bold text-accent rounded transition duration-300 border border-accent hover:bg-accent hover:text-accent-light" alt="Link to Documentation and How to Guides" to={'/guides'}> Check out my collection of Guides/Documentation!</Link>
-                    </div> */}
+                    </div>
                     <div className="flex justify-between w-full py-4 sm:py-2">
                         <a className="text-center w-full text-sm sm:text-base sm:w-32 p-1 px-2 font-semi-bold text-accent rounded transition duration-300 border border-accent hover:bg-accent hover:text-accent-light" alt="Link to Ben Weare, Benjamin Weare's App" href="https://www.collab-it.app">Collab-IT <i className="fas fa-code"></i></a>
                         <a className="text-center mx-1 w-full text-sm sm:text-base sm:w-32 p-1 px-2 font-semi-bold text-accent rounded transition duration-300 border border-accent hover:bg-accent hover:text-accent-light" alt="Link to Ben Weare, Benjamin Weare's Github" href="https://github.com/incendiarybean">GitHub <i className="fab fa-github"></i></a>

@@ -1,9 +1,11 @@
 import { toast } from 'react-toastify';
 import profile from '../IMG/profile.jpg';
+import kubernetes_login from '../IMG/guides/kuberDash.PNG';
 
 function Functions(){
     const props = {
         profile_image: profile,
+        kubernetes_login: kubernetes_login,
         custom: (info, position) => {
             toast.info(info, {
                 position: position,
