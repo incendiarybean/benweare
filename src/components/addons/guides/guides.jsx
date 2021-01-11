@@ -1,10 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { default as Gist } from '../github/index.jsx';
 
 function Components(props){
 
-    const [Loaded, setLoaded] = useState(false);
-    const [Title, setTitle] = useState('');
+    let title;
+    switch(props.guide){
+        case "pi-microk8s-dashboard":
+            title = "Running a Microk8s Dashboard";
+        break
+        case "pi-microk8s-intro":
+            title = "Getting started with MicroK8s";
+        break;
+        default:
+            title = "Introduction";
+        break;
+    }
 
     const capScroll = (e) => {
         e.preventDefault();
@@ -17,14 +27,11 @@ function Components(props){
         let item = document.getElementById('rescroll');
         e.target.parentElement.parentElement.scrollTo(0, -10);
         item.classList.add('hidden');
-    }
+    };
 
     const Article = () => {
-        console.log(props.guide)
         switch(props.guide){
             case "pi-microk8s-intro":
-                setTitle("Getting started with MicroK8s");
-                setLoaded(true);
                 return (
                     <div className="rounded-b max-h-3/4 px-3 md:p-5">
                         <p className="text-xl text-title font-bold">What is MicroK8s?</p>
@@ -37,7 +44,7 @@ function Components(props){
                         </div>
                         <hr className="my-4"/>
                         <div className="flex flex-col">
-                            <iframe className="bg-other self-center rounded-md shadow" width="400" height="250" src="https://www.youtube.com/embed/v9KI2BAF5QU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe title="Introducing Microk8s" className="bg-other self-center rounded-md shadow" width="400" height="250" src="https://www.youtube.com/embed/v9KI2BAF5QU" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                         <p className="mt-4 text-xl text-title font-bold">Requirements</p>
                         <hr className="my-1"/>
@@ -49,7 +56,7 @@ function Components(props){
                         <p className="mt-2 text-xl text-title font-bold">Where to Start?</p>
                         <hr className="my-1"/>
                         <div id="pi-microk8s-dashboard" onClick={props.chooseGuide} className="cursor-pointer text-title hover:text-accent flex justify-between pl-2">
-                            <p>Microk8s' Dashboard</p>
+                            <p>Set up the Microk8s' Dashboard</p>
                             <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
                                 <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
                             </svg>
@@ -60,8 +67,47 @@ function Components(props){
                                 <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
                             </svg>
                         </div>
+                    </div>
+                );
+            case "docker-intro":
+                return (
+                    <div className="rounded-b max-h-3/4 px-3 md:p-5">
+                        <p className="text-xl text-title font-bold">What is Docker?</p>
+                        <hr className="my-1"/>
+                        <div className="text-paragraph">
+                            <p className="py-1">Docker, according to the home page found <a className="text-blue-400 hover:text-blue-600" href="https://www.docker.com/why-docker">here</a>, simplifies and accelerates your workflow.</p>
+                            <p className="py-1">Docker is a service which allows you to create a global <b>`container`</b>, this container can be used to isolate an app you're building with a set of instructions on how to deploy it.</p>
+                            <p className="py-1">This allows you to run an app that can be made to operate on any OS or a specific OS of your choice.</p>
+                            <p className="py-1">This guide will walk you through making it work.</p>
+                        </div>
+                        <hr className="my-4"/>
+                        <p className="mt-4 text-xl text-title font-bold">Requirements</p>
+                        <hr className="my-1"/>
+                        <div className="text-title text-base py-3">
+                            <li>Windows 10, build 16299 or later.</li>
+                            <li>64 bit processor with Second Level Address Translation (SLAT).</li>
+                            <li>4GB system RAM (MINIMUM)</li>
+                            <li>BIOS-level hardware virtualization support must be enabled in the BIOS settings. For more information, see Virtualization.</li>
+                            <div className="bg-other rounded text-xs px-4 py-2 flex items-center">
+                                <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+                                    <g fill="none" fillRule="evenodd">
+                                    <circle className="stroke-current text-default" cx="10.5" cy="10.5" r="8" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path className="stroke-current text-default" d="m10.5 11.5v-5" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <circle className="stroke-current text-default" cx="10.5" cy="14.5" fill="#2a2e3b" r="1"/></g>
+                                </svg>
+                                <p className="ml-4 font-semi-bold">The higher the spec machine, the better the performance.</p>
+                            </div>
+                        </div>
+                        <p className="mt-2 text-xl text-title font-bold">Where to Start?</p>
+                        <hr className="my-1"/>
+                        <div id="pi-microk8s-dashboard" onClick={props.chooseGuide} className="cursor-pointer text-title hover:text-accent flex justify-between pl-2">
+                            <p>Set up the Microk8s' Dashboard</p>
+                            <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+                                <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
+                            </svg>
+                        </div>
                         <div className="cursor-pointer text-title hover:text-accent  flex justify-between pl-2">
-                            <p>Setting up MicroK8s</p>
+                            <p>Deploying to MicroK8s</p>
                             <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
                                 <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
                             </svg>
@@ -69,7 +115,6 @@ function Components(props){
                     </div>
                 );
             case "pi-microk8s-dashboard":
-                setTitle("Running a Microk8s Dashboard");
                 return (
                     <div className="rounded-b max-h-3/4 px-3 md:p-5">
                         <div className="text-title text-base py-4 sm:py-2 border-b">
@@ -154,8 +199,6 @@ function Components(props){
                     </div>
                 );
             default:
-                setTitle("Introduction");
-                setLoaded(true);
                 return (
                     <div className="rounded-b max-h-3/4 px-3 md:p-5">
                         <p className="text-xl text-title font-bold">What can I find here?</p>
@@ -167,8 +210,20 @@ function Components(props){
                         </div>
                         <p className="mt-2 text-xl text-title font-bold">Where to Start?</p>
                         <hr className="my-1"/>
-                        <div id="pi-microk8s-dashboard" onClick={props.chooseGuide} className="cursor-pointer text-title hover:text-accent flex justify-between pl-2">
-                            <p>Microk8s' Dashboard</p>
+                        <div id="pi-microk8s-intro" onClick={props.chooseGuide} className="cursor-pointer text-title hover:text-accent flex justify-between pl-2">
+                            <p>What is Microk8s?</p>
+                            <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+                                <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
+                            </svg>
+                        </div>
+                        <div id="docker-intro" onClick={props.chooseGuide} className="cursor-pointer text-title hover:text-accent flex justify-between pl-2">
+                            <p>What is Docker?</p>
+                            <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+                                <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
+                            </svg>
+                        </div>
+                        <div id="ssl-intro" onClick={props.chooseGuide} className="cursor-pointer text-title hover:text-accent flex justify-between pl-2">
+                            <p>What is SSL?</p>
                             <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
                                 <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
                             </svg>
@@ -176,41 +231,23 @@ function Components(props){
                     </div>
                 );
         }
-    }
+    };
 
-    useEffect(() => {
-        Article();
-    }, [])
-
-    if(!Loaded){
-        return (
-            <div className="my-5 overflow-y-auto bg-accent md:min-w-xl xs:h-auto sm:h-auto flex flex-col items-center rounded shadow sm:shadow-md">
-                <div className="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-rose-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed" disabled="">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <p>Loading</p>
+    return (
+        <div onScroll={capScroll} className="mx-10 overflow-y-auto bg-primary md:min-w-xl xs:h-auto sm:h-auto flex flex-col items-center rounded shadow sm:shadow-md">
+            <div className="rounded-t py-4 bg-other flex justify-around w-full">
+                <div className="mt-2">
+                    <h1 className="text-2xl text-title font-bold">{title}</h1>
                 </div>
             </div>
-        );
-    } else {
-        return (
-            <div onScroll={capScroll} className="mx-10 overflow-y-auto bg-primary md:min-w-xl xs:h-auto sm:h-auto flex flex-col items-center rounded shadow sm:shadow-md">
-                <div className="rounded-t py-4 bg-other flex justify-around w-full">
-                    <div className="mt-2">
-                        <h1 className="text-2xl text-title font-bold">{Title}</h1>
-                    </div>
-                </div>
-                <div id="rescroll" className="bg-other animate__animated animate__fadeIn hidden w-full sticky top-0 flex flex-col items-center">
-                    <button onClick={scroll} className="text-center my-3 w-11/12 py-2 px-2 font-semi-bold text-accent rounded transition duration-300 border border-accent hover:bg-accent hover:text-accent-light">
-                        Return to Top
-                    </button>
-                </div>
-                <Article />
+            <div id="rescroll" className="bg-other animate__animated animate__fadeIn hidden w-full sticky top-0 flex flex-col items-center">
+                <button onClick={scroll} className="text-center my-3 w-11/12 py-2 px-2 font-semi-bold text-accent rounded transition duration-300 border border-accent hover:bg-accent hover:text-accent-light">
+                    Return to Top
+                </button>
             </div>
-        );
-    }
+            <Article />
+        </div>
+    );
 }
 
 export default Components;

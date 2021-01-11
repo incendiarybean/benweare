@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://benweare.co.uk/index.html</loc>
+    <loc>https://benweare.co.uk/</loc>
+    <lastmod>2020-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://benweare.co.uk/guides</loc>
+    <lastmod>2020-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://benweare.co.uk/blog</loc>
     <lastmod>2020-09-01</lastmod>
   </url>
 </urlset>

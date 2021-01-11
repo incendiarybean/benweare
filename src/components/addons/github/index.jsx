@@ -17,11 +17,8 @@ function Component(props){
     const getGist = (node) => {
         try {
             const iframe = node;
-
             let doc = iframe.document;
-            if (iframe.contentDocument) doc = iframe.contentDocument;
-            else if (iframe.contentWindow) doc = iframe.contentWindow.document;
-
+            doc = iframe.contentDocument ? iframe.contentDocument : iframe.contentWindow.document;
             const link = buildUrl();
             const GistScript = `<script type="text/javascript" src="${link}"></script>`;
             const GistID = props.file ? props.file : props.id;

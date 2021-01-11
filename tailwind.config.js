@@ -25,7 +25,8 @@ module.exports = {
                 'xs': {'min': '200xp', 'max': '400px'},
             },
             transitionProperty: {
-                'width': 'width'
+                'width': 'width',
+                'height': 'height'
             },
             colors: {
                 'primary':'var(--bg-preset-primary)',

@@ -10,8 +10,8 @@ function App() {
     const props = functions.props;
 
     useEffect(() => {
-        props.custom("💠 Welcome!", "bottom-left")
-    }, []);
+        props.custom("💠 Welcome!", "bottom-left");
+    }, [props]);
 
     return (
         <Router>
