@@ -11,6 +11,9 @@ function Components(props){
         case "pi-microk8s-intro":
             title = "Getting started with MicroK8s";
         break;
+        case "docker-start":
+            title = "How to run a Docker Container for Node/React?";
+        break;
         default:
             title = "Introduction";
         break;
@@ -114,6 +117,65 @@ function Components(props){
                         </div>
                     </div>
                 );
+                case "docker-start":
+                    return (
+                        <div className="text-default rounded-b max-h-3/4 px-3 md:p-5">
+                            <p className="text-xl text-title font-bold"></p>
+                            <hr className="my-1"/>
+                            <p className="mt-2 text-md text-title font-bold">Step 1: Create the Build Context</p>
+                            <div className="m-4">
+                                <p className="py-1">First, you'll need to a directory that holds your Node application (you should probably have a Node project by this point)</p>
+                                <p className="py-1">Create a file named <b>`.Dockerfile`</b>.</p>
+                                <p className="py-1">Edit the file to match the below, the folder name should be the name of your current directory.</p>
+                                <Gist id="088a3c5151cc6d1ef6e2abde5f1fdef0" file=".dockerfile" />
+                                <div className="bg-other rounded text-xs px-4 py-2 flex items-center">
+                                    <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="none" fillRule="evenodd">
+                                        <circle className="stroke-current text-default" cx="10.5" cy="10.5" r="8" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path className="stroke-current text-default" d="m10.5 11.5v-5" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <circle className="stroke-current text-default" cx="10.5" cy="14.5" fill="#2a2e3b" r="1"/></g>
+                                    </svg>
+                                    <p className="ml-4 font-semi-bold">This is the context for building your container!</p>
+                                </div>
+                            </div>
+                            <p className="mt-2 text-md text-title font-bold">Step 2: Tell Docker to build!</p>
+                            <div className="m-4">
+                                <p className="py-1">Open Command Prompt, the Command Line interface, Powershell or whichever CLI your system uses.</p>
+                                <p className="py-1">Navigate to the folder using the <b>`cd /[Name of folder]</b></p>
+                                <p className="py-1">Run the following:</p>
+                                <Gist id="9755e14cd657f165ca4cfb8bd682b8d0" file="build.cmd" />
+                                <div className="bg-other rounded text-xs px-4 py-2 flex items-center">
+                                    <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="none" fillRule="evenodd">
+                                        <circle className="stroke-current text-default" cx="10.5" cy="10.5" r="8" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path className="stroke-current text-default" d="m10.5 11.5v-5" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <circle className="stroke-current text-default" cx="10.5" cy="14.5" fill="#2a2e3b" r="1"/></g>
+                                    </svg>
+                                    <p className="ml-4 font-semi-bold">You can then check the status of the Docker Container with the Desktop app.</p>
+                                </div>
+                            </div>
+                            <p className="mt-2 text-md text-title font-bold">Step 3: Access your app!</p>
+                            <div className="m-4">
+                                <p className="py-1">Open your browser, use http://localhost as the URL and remember to add the port number the Node app has to the end e.g. :8080</p>
+                                <p className="py-1">You should now be able to access your running container.</p>
+                            </div>
+                            <hr className="my-4"/>
+                            <p className="mt-2 text-xl text-title font-bold">Where next?</p>
+                            <hr className="my-1"/>
+                            <div id="pi-microk8s-dashboard" onClick={props.chooseGuide} className="cursor-pointer text-title hover:text-accent flex justify-between pl-2">
+                                <p>Set up the Microk8s' Dashboard</p>
+                                <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+                                    <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
+                                </svg>
+                            </div>
+                            <div className="cursor-pointer text-title hover:text-accent flex justify-between pl-2 pb-4">
+                                <p>Deploying to MicroK8s</p>
+                                <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+                                    <path className="stroke-current text-default" d="m.5 8.5 4-4-4-4" fill="none" stroke="#2a2e3b" strokeLinecap="round" strokeLinejoin="round" transform="translate(9 6)"/>
+                                </svg>
+                            </div>
+                        </div>
+                    );
             case "pi-microk8s-dashboard":
                 return (
                     <div className="rounded-b max-h-3/4 px-3 md:p-5">
