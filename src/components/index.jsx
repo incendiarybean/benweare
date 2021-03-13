@@ -24,6 +24,7 @@ function Component(props){
                         <li><a href="https://www.npmjs.com/package/passport" className="text-paragraph hover:text-blue-400 underline p-2">Passport.js</a></li>
                         <li><a href="https://www.npmjs.com/package/mongodb" className="text-paragraph hover:text-blue-400 underline p-2">MongoDB</a></li>
                         <li><a href="https://www.npmjs.com/package/tailwindcss" className="text-paragraph hover:text-blue-400 underline p-2">TailwindCSS</a></li>
+                        <li><a href="https://reactjs.org/" className="text-paragraph hover:text-blue-400 underline p-2">React (Functional)</a></li>
                     </div>
                     {/* <div className="flex justify-center w-full py-4 sm:py-2 border-b">
                         <Link className="text-center w-full text-sm sm:text-base p-1 px-2 font-semi-bold text-accent rounded transition duration-300 border border-accent hover:bg-accent hover:text-accent-light" alt="Link to Documentation and How to Guides" to={'/guides'}> Check out my collection of Guides/Documentation!</Link>
