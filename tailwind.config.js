@@ -3,6 +3,9 @@ module.exports = {
         purgeLayersByDefault: true,
         removeDeprecatedGapUtilities: true
     },
+    plugins: [
+        require('@tailwindcss/forms')
+    ],
     purge: {
         content: [
         ".public/index.html",
@@ -97,7 +100,7 @@ module.exports = {
         borderWidth: ['responsive', 'hover', 'focus'],
         cursor: ['responsive', 'hover', 'focus', 'active'],
         fill: ['responsive', 'hover', 'focus', 'active'],
-        backgroundColor: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+        backgroundColor: ['responsive', 'hover', 'focus', 'active', 'group-hover', 'checked'],
         animation: ['hover', 'focus'],
         zIndex: ['hover', 'active', 'focus', 'group-focus', 'focus-within'],
     }

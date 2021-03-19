@@ -30,10 +30,33 @@ html, body, #root, .App {
 
 .toggle-checkbox:checked {
     right: 0;
-    border-color: #68D391;
+    border-color: #68D391 !important;
+    background-color: white;
+    background-image: none !important;
+    --tw-ring-color: white !important;
+    color: white;
+    outline: none !important;
 }
+
+.toggle-checkbox:checked:hover {
+    background-color: white;
+    background-image: none !important;
+    --tw-ring-offset-width: 0px !important;
+    outline: none !important;
+}
+
+.toggle-checkbox:focus {
+    background-color: white;
+    background-image: none !important;
+    --tw-ring-offset-width: 0px !important;
+    outline: none !important;
+    --tw-ring-color: !important;
+    --tw-ring-shadow: !important;
+    --tw-ring-offset-shadow: !important;
+}
+
 .toggle-checkbox:checked + .toggle-label {
-    background-color: #68D391;
+    background-color: #68D391 !important;
 }
 
 .theme-light{

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Component(){
 
@@ -48,7 +49,8 @@ function Component(){
             return true;
         };
         initTheme();
-    }, [])
+
+    }, []);
 
     const setTheme = () => {
         let prev = window.localStorage.getItem('theme');
@@ -69,8 +71,16 @@ function Component(){
     }
 
     return(
-        <nav className='hidden md:flex sticky max-h-full top-0 z-30 items-center justify-between flex-wrap bg-primary border-accent border-b-4 shadow-lg'>
-            <div className='text-default w-full lg:h-full block flex flex-col flex-grow lg:flex-row lg:items-center justify-end text-left lg:w-auto'>
+        <nav className='transition duration-300 ease-in-out hidden md:flex sticky max-h-full top-0 z-30 items-center justify-between flex-wrap bg-primary border-accent border-b-4 shadow-lg'>
+            <div className='text-default w-full lg:h-full flex flex-grow justify-between'>
+                <div className="flex justify-center p-2 sm:py-2 items-center w-32">
+                    {
+                        (window.location.pathname !== '/') ?
+                        <Link className="text-center w-full text-sm sm:text-base p-1 px-2 font-semi-bold text-accent rounded transition duration-300 border border-accent hover:bg-accent hover:text-accent-light" alt="Link to return to home" to={'/'}> Home </Link>
+                        :
+                        <div></div>
+                    }
+                </div>
                 <div className='w-full md:w-36 flex justify-around p-4 items-center rounded-b items-center'>
                     <p className="w-4">🌞</p>
                     <div className='relative inline-block w-10 align-middle select-none transition duration-200 ease-in'>
