@@ -9,17 +9,17 @@ function Component(){
                 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                     window.localStorage.setItem('theme', 'dark');
                     window.localStorage.setItem('theme', 'blue');
-                    document.getElementById('root').classList.add(`theme-dark`, `accent-blue`);
+                    document.getElementById('root').classList.add(`dark`);
                     document.getElementById('toggle').checked = true;
                 } else {
                     window.localStorage.setItem('theme', 'light');
                     window.localStorage.setItem('colour', 'purple');
-                    document.getElementById('root').classList.add(`theme-light`, `accent-purple`);
+                    document.getElementById('root').classList.add(`light`);
                     document.getElementById('toggle').checked = false;
                 }
             } else {
                 let theme = window.localStorage;
-                document.getElementById('root').classList.add(`theme-${theme.theme}`);
+                document.getElementById('root').classList.add(`${theme.theme}`);
                 if(theme.colour === 'null' && theme.theme === 'light') theme.colour = 'purple';
                 if(theme.colour === 'null' && theme.theme === 'dark') theme.colour = 'blue';
                 document.getElementById('root').classList.add(`accent-${theme.colour}`);
@@ -30,9 +30,9 @@ function Component(){
 
             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
                 const newColorScheme = e.matches ? 'dark' : 'light';
-                document.getElementById('root').classList.remove('theme-light', 'theme-dark');
+                document.getElementById('root').classList.remove('light', 'dark');
                 window.localStorage.setItem('theme', `${newColorScheme}`);
-                document.getElementById('root').classList.add(`theme-${newColorScheme}`);
+                document.getElementById('root').classList.add(`${newColorScheme}`);
             });
 
             let dropdowns = document.querySelectorAll('.started-container');
@@ -57,26 +57,26 @@ function Component(){
         switch(prev){
             case 'light':
                 window.localStorage.setItem('theme', 'dark');
-                document.getElementById('root').classList.remove('theme-light', 'theme-dark');
-                return document.getElementById('root').classList.add('theme-dark');
+                document.getElementById('root').classList.remove('light', 'dark');
+                return document.getElementById('root').classList.add('dark');
             case 'dark':
                 window.localStorage.setItem('theme', 'light');
-                document.getElementById('root').classList.remove('theme-light', 'theme-dark');
-                return document.getElementById('root').classList.add('theme-light');
+                document.getElementById('root').classList.remove('light', 'dark');
+                return document.getElementById('root').classList.add('light');
             default:
                 window.localStorage.setItem('theme', 'light');
-                document.getElementById('root').classList.remove(`theme-dark`, `theme-light`);
-                return document.getElementById('root').classList.add(`theme-light`);
+                document.getElementById('root').classList.remove(`dark`, `light`);
+                return document.getElementById('root').classList.add(`light`);
         }
     }
 
     return(
-        <nav className='transition duration-300 ease-in-out hidden md:flex sticky max-h-full top-0 z-30 items-center justify-between flex-wrap bg-primary border-accent border-b-4 shadow-lg'>
+        <nav className='transition duration-300 ease-in-out hidden md:flex sticky max-h-full top-0 z-30 items-center justify-between flex-wrap bg-coolGray-100 dark:bg-coolGray-700 border-purple-600 dark:border-blue-400 border-b-4 shadow-lg'>
             <div className='text-default w-full lg:h-full flex flex-grow justify-between'>
                 <div className="flex justify-center p-2 sm:py-2 items-center w-32">
                     {
                         (window.location.pathname !== '/') ?
-                        <Link className="text-center w-full text-sm sm:text-base p-1 px-2 font-semi-bold text-accent rounded transition duration-300 border border-accent hover:bg-accent hover:text-accent-light" alt="Link to return to home" to={'/'}> Home </Link>
+                        <Link className="text-center w-full text-sm sm:text-base p-1 px-2 font-semibold text-purple-600 dark:text-blue-400 rounded transition duration-300 border border-purple-600 dark:border-blue-400 hover:bg-accent hover:text-accent-light" alt="Link to return to home" to={'/'}> Home </Link>
                         :
                         <div></div>
                     }
