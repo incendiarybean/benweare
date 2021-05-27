@@ -164,7 +164,7 @@ function Component(props){
         if(!value.match(regex)) {
             if(Hints){
                 document.getElementById(id).classList.add("bg-red-400");
-                document.getElementById(id).classList.remove("bg-secondary");
+                document.getElementById(id).classList.remove("bg-coolGray-100", "dark:bg-coolGray-600");
             }
             return props.error("Numbers must be 1-9");
         }
@@ -172,7 +172,7 @@ function Component(props){
         // If it's empty
         if(value === ""){
             document.getElementById(id).classList.remove("bg-green-400", "bg-red-400");
-            document.getElementById(id).classList.add("bg-secondary");
+            document.getElementById(id).classList.add("bg-coolGray-100", "dark:bg-coolGray-600");
             return false;
         }
 
@@ -183,10 +183,10 @@ function Component(props){
         if(Hints){
             if(Sudoku[row][col] === Solution[row][col]) {
                 document.getElementById(id).classList.add("bg-green-400");
-                document.getElementById(id).classList.remove("bg-secondary");
+                document.getElementById(id).classList.remove("bg-coolGray-100", "dark:bg-coolGray-600");
             } else {
                 document.getElementById(id).classList.add("bg-red-400");
-                document.getElementById(id).classList.remove("bg-secondary");
+                document.getElementById(id).classList.remove("bg-coolGray-100", "dark:bg-coolGray-600");
             }
         }
     };
@@ -209,7 +209,7 @@ function Component(props){
             Array.from(Array(9).keys()).forEach((i) => {
                 Array.from(Array(9).keys()).forEach((j) => {
                     document.getElementById(`${i}-${j}`).classList.remove('bg-green-400', 'bg-red-400');
-                    document.getElementById(`${i}-${j}`).classList.add("bg-secondary");
+                    document.getElementById(`${i}-${j}`).classList.add("bg-coolGray-100", "dark:bg-coolGray-600");
                 });
             });
         } else {
@@ -217,14 +217,14 @@ function Component(props){
                 Array.from(Array(9).keys()).forEach((j) => {
                     if(document.getElementById(`${i}-${j}`).value === "") {
                         document.getElementById(`${i}-${j}`).classList.remove("bg-green-400", "bg-red-400");
-                        document.getElementById(`${i}-${j}`).classList.add("bg-secondary");
+                        document.getElementById(`${i}-${j}`).classList.add("bg-coolGray-100", "dark:bg-coolGray-600");
                     } else {
                         if(parseInt(document.getElementById(`${i}-${j}`).value) === Solution[i][j]) {
                             document.getElementById(`${i}-${j}`).classList.add("bg-green-400");
-                            document.getElementById(`${i}-${j}`).classList.remove("bg-secondary");
+                            document.getElementById(`${i}-${j}`).classList.remove("bg-coolGray-100", "dark:bg-coolGray-600");
                         } else {
                             document.getElementById(`${i}-${j}`).classList.add("bg-red-400");
-                            document.getElementById(`${i}-${j}`).classList.remove("bg-secondary");
+                            document.getElementById(`${i}-${j}`).classList.remove("bg-coolGray-100", "dark:bg-coolGray-600");
                         }
                     }
                 });
@@ -233,9 +233,9 @@ function Component(props){
     };
 
     return (
-        <div className="animate__animated animate__fadeIn transition duration-300 ease-in-out text-default flex flex-col items-center bg-secondary h-full">
-            <form id="difficulty" onSubmit={(Reload) ? reset : generate } className="transition duration-300 ease-in-out rounded w-1/2 text-center bg-primary p-3 py-5 shadow mt-10">
-                <h1 className="uppercase font-bold text-default">Sudoku Generator</h1>
+        <div className="animate__animated animate__fadeIn transition duration-300 ease-in-out text-coolGray-700 dark:text-white flex flex-col items-center bg-coolGray-100 dark:bg-coolGray-600 h-full">
+            <form id="difficulty" onSubmit={(Reload) ? reset : generate } className="transition duration-300 ease-in-out rounded w-1/2 text-center bg-white dark:bg-coolGray-700 p-3 py-5 shadow mt-10">
+                <h1 className="uppercase font-bold text-coolGray-700 dark:text-white">Sudoku Generator</h1>
                 <p>Select your difficulty and click begin.</p>
                 <div className="flex flex-col lg:flex-row justify-around p-4 w-full">
                     <label className="inline-flex items-center cursor-pointer">
@@ -254,7 +254,7 @@ function Component(props){
                 <button type="submit" className="transition duration-300 ease-in-out bg-gray-900 text-white w-full rounded-md p-2 hover:bg-green-600 shadow-md">{(Reload) ? "Reset!" : "Generate!"}</button>
             </form>
             {(Sudoku.length > 0) ?
-                <div className="animate__animated animate__fadeIn transition duration-300 ease-in-out mt-4 p-4 bg-primary grid grid-rows-9 shadow-lg rounded-md">
+                <div className="animate__animated animate__fadeIn transition duration-300 ease-in-out mt-4 p-4 bg-white dark:bg-coolGray-700 grid grid-rows-9 shadow-lg rounded-md">
                     <div className="flex justify-around">
                         <p className="mx-1 text-center mb-2 bg-gray-900 text-white w-1/2 rounded-full p-2 shadow-md">Current Attempts: {Tries}</p>
                     </div>
@@ -266,7 +266,7 @@ function Component(props){
                                         item.map((number, colIndex) => {
                                             return (
                                                 <div key={`item-col-${colIndex}`} className={(isThree(colIndex)) ? "border-l p-2": "p-2"}>
-                                                    <input id={`${rowIndex}-${colIndex}`} onKeyUp={e => updateArray(rowIndex, colIndex, e.target.value, e.target.id)} className="items-center transition duration-300 ease-in-out text-xl w-6 h-6 lg:w-8 lg:h-8 text-center bg-secondary rounded" defaultValue={number}/>
+                                                    <input id={`${rowIndex}-${colIndex}`} onKeyUp={e => updateArray(rowIndex, colIndex, e.target.value, e.target.id)} className="items-center text-coolGray-700 dark:text-white transition duration-300 ease-in-out text-xl w-6 h-6 lg:w-8 lg:h-8 text-center bg-coolGray-100 dark:bg-coolGray-600 shadow-inner rounded" defaultValue={number}/>
                                                 </div>
                                             );
                                         })
@@ -279,7 +279,7 @@ function Component(props){
                     <button onClick={finish} className="my-2 transition duration-300 ease-in-out bg-gray-900 text-white w-full rounded-md p-2 hover:bg-green-600 shadow-md">Submit!</button>
                     <label htmlFor="hints" className="ml-4 flex p-1 items-center cursor-pointer">
                         <input type="checkbox" className="bg-other rounded border-default" onChange={hint} name="hints" id="hints" />
-                        <span className="ml-2">Enable hints?</span>
+                        <span className="ml-2 text-coolGray-700 dark:text-white">Enable hints?</span>
                     </label>
                 </div>
                 :

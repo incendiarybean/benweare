@@ -76,7 +76,7 @@ function Component(){
                 <div className="flex justify-center p-2 sm:py-2 items-center w-32">
                     {
                         (window.location.pathname !== '/') ?
-                        <Link className="text-center w-full text-sm sm:text-base p-1 px-2 font-semibold text-purple-600 dark:text-blue-400 rounded transition duration-300 border border-purple-600 dark:border-blue-400 hover:bg-accent hover:text-accent-light" alt="Link to return to home" to={'/'}> Home </Link>
+                        <Link className="text-center w-full text-sm sm:text-base p-1 px-2 font-semibold text-purple-600 dark:text-blue-400 rounded transition duration-300 border border-purple-600 dark:border-blue-400 hover:text-purple-100 dark:hover:text-blue-100 hover:bg-purple-600 dark:hover:bg-blue-400" alt="Link to return to home" to={'/'}> Home </Link>
                         :
                         <div></div>
                     }
